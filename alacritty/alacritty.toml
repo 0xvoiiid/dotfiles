@@ -1,0 +1,184 @@
+#dynamic_title = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[colors.selection]
+text = "#000000"
+
+#[[colors.selection.indexed_colors]]
+#color = "#FE640B"
+#index = 16
+
+#[[colors.selection.indexed_colors]]
+#color = "#DC8A78"
+#index = 17
+
+#[colors.selection.bright]
+#black = "#6C6F85"
+#blue = "#1E66F5"
+#cyan = "#179299"
+#green = "#40A02B"
+#magenta = "#EA76CB"
+#red = "#D20F39"
+#white = "#BCC0CC"
+#yellow = "#DF8E1D"
+
+#[colors.selection.dim]
+#black = "#5C5F77"
+#blue = "#1E66F5"
+#cyan = "#179299"
+#green = "#40A02B"
+#magenta = "#EA76CB"
+#red = "#D20F39"
+#white = "#ACB0BE"
+#yellow = "#DF8E1D"
+
+#[colors.selection.normal]
+#black = "#5C5F77"
+#blue = "#1E66F5"
+#cyan = "#179299"
+#green = "#40A02B"
+#magenta = "#EA76CB"
+#red = "#D20F39"
+#white = "#ACB0BE"
+#yellow = "#DF8E1D"
+
+[cursor]
+style = "Underline"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 13.0
+
+[font.bold]
+#family = "Cascadia Code"
+family = "Terminus (TTF)"
+style = "Bold"
+
+[font.bold_italic]
+#family = "Cascadia Code"
+family = "Terminus (TTF)"
+style = "Bold Italic"
+
+[font.italic]
+#family = "Cascadia Code"
+family = "Terminus (TTF)"
+style = "Italic"
+
+[font.normal]
+#family = "Cascadia Code"
+family = "Terminus (TTF)"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 4
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "Down"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "Up"
+mode = "~Alt"
+mods = "Shift"
+
+[scrolling]
+history = 5000
+
+[window]
+dynamic_padding = false
+opacity = 0.95
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 15
+y = 12

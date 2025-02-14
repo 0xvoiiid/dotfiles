@@ -1,0 +1,55 @@
+#!/bin/bash
+
+
+get_song() {
+
+    song=$(playerctl --player="$1" metadata title 2>/dev/null)
+    if [ -n "$song" ]; then
+
+        echo "${song:0:30}"
+    else
+        echo "No music playing"
+    fi
+}
+
+
+get_player_status() {
+
+    status=$(playerctl --player="$1" status 2>/dev/null)
+    echo "$status"
+}
+
+
+players=$(playerctl --list-all)
+
+
+output=""
+for player in $players; do
+
+    status=$(get_player_status "$player")
+
+    if [[ "$status" == "Playing" ]]; then
+
+        song=$(get_song "$player")
+
+        if [[ "$player" == *"firefox"* ]]; then
+
+            clean_player=$(echo "$player" | sed 's/\.instance.*//')
+
+            song=$(playerctl --player="$player" metadata title)
+            song=$(echo "$song" | cut -c1-30)  
+
+            player="$clean_player"
+        fi
+
+        output+="$player: $song\n"
+    fi
+done
+
+
+if [ -z "$output" ]; then
+    echo "No music playing"
+else
+    echo -e "$output"
+fi
+

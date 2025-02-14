@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+SERVICE=$BLOCK_INSTANCE
+
+INACTIVE_COLOR=#888888
+ACTIVE_COLOR=#e20000
+
+ACTIVE="<span foreground=\"$ACTIVE_COLOR\">$SERVICE</span>"
+INACTIVE="<span foreground=\"$INACTIVE_COLOR\"><s>$SERVICE</s></span>"
+
+
+if systemctl is-active --quiet "$SERVICE"; then
+    echo "$ACTIVE"
+else
+    echo "$INACTIVE"
+fi
+
+if [ "$BLOCK_BUTTON" == '1' ]; then
+    if systemctl is-active --quiet "$SERVICE"; then
+        systemctl stop "$SERVICE"
+    else
+        systemctl start "$SERVICE"
+    fi
+fi
+

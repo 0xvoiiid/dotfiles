@@ -1,0 +1,51 @@
+#!/bin/bash
+
+BRIGHTNESS_STEP=10 
+MIN_BRIGHTNESS=10
+MAX_BRIGHTNESS=100  
+
+
+get_brightness() {
+    current_brightness=$(light -G)  
+    echo "$current_brightness"
+}
+
+
+set_brightness() {
+    light -S "$1"  
+}
+
+
+reset_brightness() {
+    set_brightness $MIN_BRIGHTNESS  
+}
+
+
+case $BLOCK_BUTTON in
+    1)  
+        reset_brightness
+        ;;
+    3)  
+        set_brightness $MAX_BRIGHTNESS
+        ;;
+    4)  
+        current_brightness=$(get_brightness)
+        if [ $(echo "$current_brightness < $MAX_BRIGHTNESS" | bc) -eq 1 ]; then
+            new_brightness=$(echo "$current_brightness + $BRIGHTNESS_STEP" | bc)
+            set_brightness $new_brightness
+        fi
+        ;;
+    5)  
+        current_brightness=$(get_brightness)
+        if [ $(echo "$current_brightness > $MIN_BRIGHTNESS" | bc) -eq 1 ]; then
+            new_brightness=$(echo "$current_brightness - $BRIGHTNESS_STEP" | bc)
+            set_brightness $new_brightness
+        fi
+        ;;
+esac
+
+
+PERCENT=$(get_brightness)
+
+echo "$PERCENT%"
+
